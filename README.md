@@ -15,3 +15,9 @@ Examples:
 '0000000': the letter is not in the word.
 
 The rest of the logic (counting the number of wrong guesses, check if the whole word is guessed) for now still remains on the front-end, in javascript.
+
+__________________________________________________________________________________________________________
+Implementation:
+
+Step 1:
+ - [x] On load, sever chooses random word and returns its length.
