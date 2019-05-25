@@ -20,4 +20,7 @@ ________________________________________________________________________________
 Implementation:
 
 Step 1:
- - [x] On load, sever chooses random word and returns its length.
+ - [x] On load, server chooses random word and returns its length.
+
+Step 2:
+ - [x] Dynamically create the page, based on the length returned from the server.
