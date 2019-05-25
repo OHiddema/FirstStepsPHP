@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
    for (let i = 0; i < 26; i++) {
       let elem = document.createElement('div');
       let node = document.createTextNode(String.fromCharCode(65 + i));
@@ -9,21 +9,23 @@ window.onload = function() {
    }
 }
 
-function init() {
-   var xmlhttp = new XMLHttpRequest();
-   xmlhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-         wordLength = parseInt(this.responseText);
-         console.log(wordLength); //temporarily for testing purpose
-         setPlaceholders();
-      }
-   };
-   xmlhttp.open('GET', 'init.php', true);
-   xmlhttp.send();
-}
+$(function () {
 
-function setPlaceholders() {
-   $(function () {
+   function init() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+         if (this.readyState == 4 && this.status == 200) {
+            wordLength = parseInt(this.responseText);
+            console.log(wordLength); //temporarily for testing purpose
+            setPlaceholders();
+         }
+      };
+      xmlhttp.open('GET', 'init.php', true);
+      xmlhttp.send();
+   }
+
+   function setPlaceholders() {
+
       // Dynamically create placeholders for the letters of the word to be guessed
       let elem = document.createElement('br');
       document.body.appendChild(elem);
@@ -37,7 +39,21 @@ function setPlaceholders() {
       // dirty fix!
       $('.fillWord').html('.');
       // dirty fix!
-   });
-}
+   }
 
-init();
+   $('.alphabetBtn').click(function () {
+      var compareString = '';
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+         if (this.readyState == 4 && this.status == 200) {
+            compareString = this.responseText;
+            console.log(compareString); //temporarily for testing purpose
+         }
+      };
+      xmlhttp.open('GET', 'compare.php?q=' + this.innerHTML , true);
+      xmlhttp.send();
+   });
+
+   init();
+
+});
