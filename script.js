@@ -10,6 +10,11 @@ window.onload = function () {
       elem.appendChild(node);
       document.body.appendChild(elem);
    }
+
+   // create some vertical space between alphabet buttons and word to guess (a not so elegant solution)
+   let elem = document.createElement('div');
+   elem.setAttribute('style', 'height: 50px');
+   document.body.appendChild(elem);
 }
 
 $(function () {
