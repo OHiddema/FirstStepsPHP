@@ -9,8 +9,7 @@
    margin-top: 10px;
    border: 2px solid black;
    background:dodgerblue;
-   transition-duration: 1s;
-   transition: background-color 2s;
+   transition: background-color 1s;
    cursor: pointer;
  }
  
@@ -20,6 +19,5 @@
  
  .alphabetBtn:hover{
    background: white;
-   transition: background-color 0.3s;
  }
  
