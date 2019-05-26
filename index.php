@@ -11,8 +11,12 @@
 </head>
 <body>
    <h1>Galgje</h1>
-   Aantal foute beurten: <label id='lblFouteBeurten'>0</label>
-  <br /><br />
-
+   Aantal foute beurten: <label id='lblFouteBeurten'>0</label><br><br>
+  <div id='alphabetDiv'>
+   <div>Te kiezen letters:</div>
+  </div>
+  <div id='wordDiv'>
+     <div>Te raden woord:</div>
+  </div>
 </body>
 </html>

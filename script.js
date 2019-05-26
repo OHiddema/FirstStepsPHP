@@ -2,19 +2,22 @@ var wrongGuesses = 0;
 var wordLength = 0;
 
 window.onload = function () {
+
+   let container = document.getElementById('alphabetDiv')
    for (let i = 0; i < 26; i++) {
       let elem = document.createElement('div');
       let node = document.createTextNode(String.fromCharCode(65 + i));
 
       elem.setAttribute('class', 'alphabetBtn');
       elem.appendChild(node);
-      document.body.appendChild(elem);
+      // document.body.appendChild(elem);
+      container.appendChild(elem);
    }
 
    // create some vertical space between alphabet buttons and word to guess (a not so elegant solution)
-   let elem = document.createElement('div');
-   elem.setAttribute('style', 'height: 50px');
-   document.body.appendChild(elem);
+   // let elem = document.createElement('div');
+   // elem.setAttribute('style', 'height: 50px');
+   // document.body.appendChild(elem);
 }
 
 $(function () {
@@ -35,13 +38,15 @@ $(function () {
    function setPlaceholders() {
 
       // Dynamically create placeholders for the letters of the word to be guessed
-      let elem = document.createElement('br');
-      document.body.appendChild(elem);
+      // let elem = document.createElement('br');
+      // document.body.appendChild(elem);
 
+      let container = document.getElementById('wordDiv');
       for (let i = 1; i <= wordLength; i++) {
          let elem = document.createElement('div');
          elem.setAttribute('class', 'fillWord');
-         document.body.appendChild(elem);
+         // document.body.appendChild(elem);
+         container.appendChild(elem);
       }
 
       // dirty fix!

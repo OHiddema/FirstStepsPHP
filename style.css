@@ -16,3 +16,12 @@
  .alphabetBtn:hover{
    background: white;
  }
+
+ #wordDiv {
+   margin-top: 50px;
+ }
+
+ #alphabetDiv, #wordDiv {
+   background-color: lightblue;
+   padding: 5px;
+ }
