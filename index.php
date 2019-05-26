@@ -11,5 +11,8 @@
 </head>
 <body>
    <h1>Galgje</h1>
+   Aantal foute beurten: <label id='lblFouteBeurten'></label>
+  <br /><br />
+
 </body>
 </html>

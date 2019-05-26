@@ -1,3 +1,6 @@
+var wrongGuesses = 0;
+var wordLength = 0;
+
 window.onload = function () {
    for (let i = 0; i < 26; i++) {
       let elem = document.createElement('div');
@@ -42,16 +45,53 @@ $(function () {
    }
 
    $('.alphabetBtn').click(function () {
+      var letterToSearch = this.innerHTML
+      var found = false;
       var compareString = '';
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function () {
          if (this.readyState == 4 && this.status == 200) {
             compareString = this.responseText;
             console.log(compareString); //temporarily for testing purpose
+            updateScreen();
          }
       };
-      xmlhttp.open('GET', 'compare.php?q=' + this.innerHTML , true);
+      xmlhttp.open('GET', 'compare.php?q=' + this.innerHTML, true);
       xmlhttp.send();
+
+      function updateScreen() {
+         // Check if the chosen letter is in the word to be guessed
+         for (let i = 0; i < compareString.length; i++) {
+            if (compareString.substr(i, 1) == '1') {
+               found = true;
+               // Fill in the letters in the right positions
+               $('.fillWord').eq(i).html(letterToSearch);
+            }
+         }
+
+         // Check if we guessed the whole word correct
+         if (found === true) {
+            let allCorrect = true;
+            for (let i = 0; i < wordLength; i++) {
+               if ($('.fillWord').eq(i).html() == '.') {
+                  allCorrect = false;
+               }
+            }
+            if (allCorrect === true) {
+               alert('Gefeliciteerd! Je hebt gewonnen!');
+            }
+         }
+
+         // Check if max number of wrong guesses is reached
+         if (found === false) {
+            wrongGuesses += 1;
+            $('#lblFouteBeurten').html(wrongGuesses);
+            if (wrongGuesses === 10) {
+               alert('Helaas pindakaas! Je hebt 10 foute beurten gemaakt, dus verloren.');
+            }
+         }
+      }
+
    });
 
    init();
