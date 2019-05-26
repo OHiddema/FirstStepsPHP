@@ -1,12 +1,9 @@
 .alphabetBtn, .fillWord{
-
-   display: inline-flex;
-   justify-content: center;
+   text-align: center;
    line-height: 50px;
    width: 50px;
    height: 50px;
-   margin-right: 5px;
-   margin-top: 10px;
+   margin: 5px;
    border: 2px solid black;
    background:dodgerblue;
    transition: background-color 1s;
@@ -17,11 +14,14 @@
    background: white;
  }
 
- #wordDiv {
-   margin-top: 50px;
+ #alphabetDiv {
+   margin-bottom: 50px;
  }
 
  #alphabetDiv, #wordDiv {
    background-color: lightblue;
    padding: 5px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
  }

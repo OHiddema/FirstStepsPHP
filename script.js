@@ -48,10 +48,6 @@ $(function () {
          // document.body.appendChild(elem);
          container.appendChild(elem);
       }
-
-      // dirty fix!
-      $('.fillWord').html('.');
-      // dirty fix!
    }
 
    $('.alphabetBtn').click(function () {
@@ -81,7 +77,7 @@ $(function () {
          if (found === true) { // Check if we guessed the whole word correct
             let allCorrect = true;
             for (let i = 0; i < wordLength; i++) {
-               if ($('.fillWord').eq(i).html() == '.') {
+               if ($('.fillWord').eq(i).html() == '') {
                   allCorrect = false;
                }
             }
