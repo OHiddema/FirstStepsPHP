@@ -60,17 +60,15 @@ $(function () {
       xmlhttp.send();
 
       function updateScreen() {
-         // Check if the chosen letter is in the word to be guessed
-         for (let i = 0; i < compareString.length; i++) {
+         // Check if the chosen letter is in the word to be guessed. If so, fill it.         
+         for (let i = 0; i < wordLength; i++) {
             if (compareString.substr(i, 1) == '1') {
                found = true;
-               // Fill in the letters in the right positions
                $('.fillWord').eq(i).html(letterToSearch);
             }
          }
 
-         // Check if we guessed the whole word correct
-         if (found === true) {
+         if (found === true) { // Check if we guessed the whole word correct
             let allCorrect = true;
             for (let i = 0; i < wordLength; i++) {
                if ($('.fillWord').eq(i).html() == '.') {
@@ -80,10 +78,7 @@ $(function () {
             if (allCorrect === true) {
                alert('Gefeliciteerd! Je hebt gewonnen!');
             }
-         }
-
-         // Check if max number of wrong guesses is reached
-         if (found === false) {
+         } else { // Check if max number of wrong guesses is reached            
             wrongGuesses += 1;
             $('#lblFouteBeurten').html(wrongGuesses);
             if (wrongGuesses === 10) {
@@ -91,7 +86,6 @@ $(function () {
             }
          }
       }
-
    });
 
    init();
