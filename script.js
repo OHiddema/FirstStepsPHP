@@ -10,14 +10,8 @@ window.onload = function () {
 
       elem.setAttribute('class', 'alphabetBtn');
       elem.appendChild(node);
-      // document.body.appendChild(elem);
       container.appendChild(elem);
    }
-
-   // create some vertical space between alphabet buttons and word to guess (a not so elegant solution)
-   // let elem = document.createElement('div');
-   // elem.setAttribute('style', 'height: 50px');
-   // document.body.appendChild(elem);
 }
 
 $(function () {
@@ -27,7 +21,6 @@ $(function () {
       xmlhttp.onreadystatechange = function () {
          if (this.readyState == 4 && this.status == 200) {
             wordLength = parseInt(this.responseText);
-            console.log(wordLength); //temporarily for testing purpose
             setPlaceholders();
          }
       };
@@ -38,14 +31,11 @@ $(function () {
    function setPlaceholders() {
 
       // Dynamically create placeholders for the letters of the word to be guessed
-      // let elem = document.createElement('br');
-      // document.body.appendChild(elem);
 
       let container = document.getElementById('wordDiv');
       for (let i = 1; i <= wordLength; i++) {
          let elem = document.createElement('div');
          elem.setAttribute('class', 'fillWord');
-         // document.body.appendChild(elem);
          container.appendChild(elem);
       }
    }
@@ -58,7 +48,6 @@ $(function () {
       xmlhttp.onreadystatechange = function () {
          if (this.readyState == 4 && this.status == 200) {
             compareString = this.responseText;
-            console.log(compareString); //temporarily for testing purpose
             updateScreen();
          }
       };

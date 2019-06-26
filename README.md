@@ -29,4 +29,4 @@ Step 3:
  - [x] When the user clicks one of the 26 letter buttons (A..Z), a request with this letter is sent to the server. The server checks if the letter is in the word to be guessed and returns a string with the positions of this letter.
 
 Step 4:
-- [X] Do the reamianing logic in javascript (refresh te screen).
+- [X] Do the remaining logic in javascript (refresh te screen).
